@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  bl_master: one
+  bl_house: one
+  container: one
+
+two:
+  bl_master: two
+  bl_house: two
+  container: two

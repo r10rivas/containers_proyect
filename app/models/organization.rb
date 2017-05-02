@@ -3,6 +3,7 @@ class Organization < ApplicationRecord
   has_many :ships
   # has_many :organizations
   has_many :bls
+  belongs_to :company
 
   # Validations
   # validates :kind_of_organization, presence:{message: 'the kind_of_organization is nil'}

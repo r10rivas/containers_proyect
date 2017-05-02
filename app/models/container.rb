@@ -1,10 +1,21 @@
 class Container < ApplicationRecord
+  has_many :bl_containers
+
   enum kind_of_container: {HIGH_CUBE_40: 1, OPEN_TOP_20: 2, OPEN_TOP_40: 3, STANDAR_20: 4, STANDAR_40: 5, TANK: 6, REEFER_20: 7, REEFER_40: 8 } #para el tipo de container
 
 
   # Validations
   validates :code, presence:{message: "the code is nil"}, length: { is: 11, message: "the code is not of 11 caracters" }
   validates :kind_of_container, presence:{message: 'the kind_of_container is nil'}
+
+
+  def all_errors
+    if self.persisted?
+      self.reload
+    end
+    self.valid?
+    self.errors.messages
+  end
 
 
 

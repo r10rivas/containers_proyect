@@ -3,8 +3,8 @@ class Company < ApplicationRecord
   has_many :phones
   has_many :emails
   has_many :bls
-
   has_one :organization
+  
   enum kind_of_doc: {JURIDICA: 1, NATURAL: 2, EXTRANJERA: 3, OTRO: 4} #para el tipo de compañia
 
   #Validates

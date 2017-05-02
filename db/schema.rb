@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170502013435) do
+ActiveRecord::Schema.define(version: 20170502075241) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,17 @@ ActiveRecord::Schema.define(version: 20170502013435) do
     t.datetime "updated_at",  null: false
     t.index ["company_id"], name: "index_addresses_on_company_id", using: :btree
     t.index ["country_id"], name: "index_addresses_on_country_id", using: :btree
+  end
+
+  create_table "bl_containers", force: :cascade do |t|
+    t.integer  "bl_master_id"
+    t.integer  "bl_house_id"
+    t.integer  "container_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["bl_house_id"], name: "index_bl_containers_on_bl_house_id", using: :btree
+    t.index ["bl_master_id"], name: "index_bl_containers_on_bl_master_id", using: :btree
+    t.index ["container_id"], name: "index_bl_containers_on_container_id", using: :btree
   end
 
   create_table "bls", force: :cascade do |t|
@@ -122,6 +133,7 @@ ActiveRecord::Schema.define(version: 20170502013435) do
 
   add_foreign_key "addresses", "companies"
   add_foreign_key "addresses", "countries"
+  add_foreign_key "bl_containers", "containers"
   add_foreign_key "bls", "organizations"
   add_foreign_key "bls", "travels"
   add_foreign_key "emails", "companies"
