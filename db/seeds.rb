@@ -91,22 +91,22 @@ puts "Created #{Ship.count} ships"
 mufasa = Ship.find_by name: "MUFASA"
 p_origen_1 = Port.find_by name: "PESCARA"
 p_destination_1 = Port.find_by name:"MARACAIBO"
-Travel.create(cod_travel: "1010", ship: mufasa, origin: p_origen_1, destination: p_destination_1)
+travel_1 = Travel.create(cod_travel: "1010", ship: mufasa, origin: p_origen_1, destination: p_destination_1)
 
 rio_hudson = Ship.find_by name: "RIO HUDSON"
 p_origen_2 = Port.find_by name: "MALLORCA"
 p_destination_2 = Port.find_by name:"MARACAIBO"
-Travel.create(cod_travel: "2020", ship: rio_hudson, origin: p_origen_2, destination: p_destination_2)
+travel_2 = Travel.create(cod_travel: "2020", ship: rio_hudson, origin: p_origen_2, destination: p_destination_2)
 
 san_adriano = Ship.find_by name: "SAN ADRIANO"
 p_origen_3 = Port.find_by name: "PESCARA"
 p_destination_3 = Port.find_by name:"LA GUAIRA"
-Travel.create(cod_travel: "3030", ship: san_adriano, origin: p_origen_3, destination: p_destination_3)
+travel_3 = Travel.create(cod_travel: "3030", ship: san_adriano, origin: p_origen_3, destination: p_destination_3)
 
 maersk_saiper = Ship.find_by name: "MAERSK SAIPER"
 p_origen_4 = Port.find_by name: "AMSTERDAM"
 p_destination_4 = Port.find_by name:"PUERTO CABELLO"
-Travel.create(cod_travel: "4040", ship: maersk_saiper, origin: p_origen_4, destination: p_destination_4)
+travel_4 =Travel.create(cod_travel: "4040", ship: maersk_saiper, origin: p_origen_4, destination: p_destination_4)
 puts ""
 puts ""
 puts "Created #{Travel.count} travels"
@@ -115,6 +115,19 @@ puts "Created #{Travel.count} travels"
 
 
 ###Bls
+#BLM
+dhl_nvocc = Company.find_by name: "DHL GLOBAL FORWARDING DE VENEZUELA, C.A."
+blm_1 = Bl.create(cod_bl: "COSU36425960", organization: hamburg_shi, consignee:dhl_nvocc, origin: p_origen_1, destination: p_destination_1, date_arrive: Time.now, is_master: true, travel: travel_1)
+
+#BLH
+consignee_blh_1 = Company.find_by name: "COLGATE PALMOLIVE, C.A."
+Bl.create(cod_bl: "COSU36827960", organization: hamburg_shi, consignee:consignee_blh_1, origin: p_origen_1, destination: p_destination_1, date_arrive: Time.now, is_master: false, travel: travel_1, bl_master: blm_1)
+
+consignee_blh_2 = Company.find_by name: "TIENDA DE ANIMALES DON PERRO, C.A."
+Bl.create(cod_bl: "COSU0100541781", organization: hamburg_shi, consignee:consignee_blh_2, origin: p_origen_1, destination: p_destination_1, date_arrive: Time.now, is_master: false, travel: travel_1, bl_master: blm_1)
+puts ""
+puts ""
+puts "Created #{Bl.count} bls"
 
 
 
