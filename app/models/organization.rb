@@ -9,7 +9,7 @@ class Organization < ApplicationRecord
   # validates :kind_of_organization, presence:{message: 'the kind_of_organization is nil'}
   validates :company, uniqueness:{message: "the company is registred"}
 
-
+=begin
   def self.list_of_bl()
     shipping = Organization.all
     coleccion = []
@@ -29,11 +29,5 @@ class Organization < ApplicationRecord
 
     # puts shipping
   end
-
-
-
-  def json_bl
-    Bl.find_by(bl_master: self.id)
-  end
-
+=end
 end

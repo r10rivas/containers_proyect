@@ -18,11 +18,6 @@ class Bl < ApplicationRecord
   before_save :is_house_default
 
 
-  def list_blm(type)
-    
-  end
-
-
   def json_blh
     hash = {}
     hash[:cod_bl] = self.cod_bl
@@ -40,9 +35,7 @@ class Bl < ApplicationRecord
       hash[:bl_master] = self.bl_master.cod_bl
     end
     # hash[:containers] = BlContainer.find_by(id: self)(person_id: self.id)
-
     print hash
-
   end
 
   private

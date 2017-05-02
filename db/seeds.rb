@@ -57,24 +57,64 @@ puts "Created #{Port.count} ports"
 
 
 ###Organizations
-hamburd = Company.find_by name: "HAMBURG SUD VENEZUELA C.A"
-Organization.create(company: hamburd)
+hamburg = Company.find_by name: "HAMBURG SUD VENEZUELA C.A"
+hamburg_shi = Organization.create(company: hamburg)
 
 maer = Company.find_by name: "TRANSPORTE MARITIMO MAERSK VENEZUELA, S.A."
-Organization.create(company: maer)
+maer_shi = Organization.create(company: maer)
 
 global = Company.find_by name: "GLOBAL SHIPPING AGENTES NAVIEROS, C.A."
-Organization.create(company: global)
+global_shi =  Organization.create(company: global)
 
 sealand = Company.find_by name: "SEALAND VENEZUELA S.A"
-Organization.create(company: sealand)
+sealand_shi = Organization.create(company: sealand)
 puts ""
 puts ""
 puts "Created #{Organization.count} organization"
+#shi = shipping
+
+
+
+###Ships
+Ship.create([{owner: global_shi, name: "ASIAN FAVOUR"}, {owner: global_shi, name: "MUFASA"}])
+
+Ship.create([{owner: maer_shi, name: "MARIE SCHULTE"}, {owner: maer_shi, name: "MAERSK SAIPER"}])
+
+Ship.create([{owner: hamburg_shi, name: "RIO HUDSON"}, {owner: hamburg_shi, name: "SAN ADRIANO"}])
+puts ""
+puts ""
+puts "Created #{Ship.count} ships"
+
+
+
+###Travels
+mufasa = Ship.find_by name: "MUFASA"
+p_origen_1 = Port.find_by name: "PESCARA"
+p_destination_1 = Port.find_by name:"MARACAIBO"
+Travel.create(cod_travel: "1010", ship: mufasa, origin: p_origen_1, destination: p_destination_1)
+
+rio_hudson = Ship.find_by name: "RIO HUDSON"
+p_origen_2 = Port.find_by name: "MALLORCA"
+p_destination_2 = Port.find_by name:"MARACAIBO"
+Travel.create(cod_travel: "2020", ship: rio_hudson, origin: p_origen_2, destination: p_destination_2)
+
+san_adriano = Ship.find_by name: "SAN ADRIANO"
+p_origen_3 = Port.find_by name: "PESCARA"
+p_destination_3 = Port.find_by name:"LA GUAIRA"
+Travel.create(cod_travel: "3030", ship: san_adriano, origin: p_origen_3, destination: p_destination_3)
+
+maersk_saiper = Ship.find_by name: "MAERSK SAIPER"
+p_origen_4 = Port.find_by name: "AMSTERDAM"
+p_destination_4 = Port.find_by name:"PUERTO CABELLO"
+Travel.create(cod_travel: "4040", ship: maersk_saiper, origin: p_origen_4, destination: p_destination_4)
+puts ""
+puts ""
+puts "Created #{Travel.count} travels"
 
 
 
 
+###Bls
 
 
 
