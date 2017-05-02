@@ -8,7 +8,7 @@ class Container < ApplicationRecord
   validates :code, presence:{message: "the code is nil"}, length: { is: 11, message: "the code is not of 11 caracters" }
   validates :kind_of_container, presence:{message: 'the kind_of_container is nil'}
 
-
+  #Metodo para ver los errores de validaciones
   def all_errors
     if self.persisted?
       self.reload
@@ -18,34 +18,7 @@ class Container < ApplicationRecord
   end
 
 
-
-  def self.loquesea(val)
-
-    h = Container.where(kind_of_container: val)#tipo de container
-    h.map{|obj| obj.code}
-  end
-
-  def self.sisi
-    h = Container.all
-    m = h.to_a
-    array = [] #array para almacenar un array por cada kind_of_container
-    hq = []
-    st = []
-      m.map do |obj|
-        if obj.kind_of_container == "HIGH_CUBE_40"
-          hq << obj
-        elsif obj.kind_of_container == "STANDAR_20"
-          st << obj
-        end
-
-      end
-      array << hq
-      array << st
-      print array.count
-    # m = h.to_a.size
-  end
-
-
+  # Metodo para listar cantidad de equipos por su tipo
   def self.list_for_type
     aux_temp = {}
     aux_temp[:high_cube] = Container.where(kind_of_container: 1).count
