@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cod_bl: MyString
+  organization: one
+  consignee: one
+  origin: one
+  destination: one
+  date_arrive: 2017-05-01
+  is_master: false
+  bl_master: one
+  travel: one
+
+two:
+  cod_bl: MyString
+  organization: two
+  consignee: two
+  origin: two
+  destination: two
+  date_arrive: 2017-05-01
+  is_master: false
+  bl_master: two
+  travel: two

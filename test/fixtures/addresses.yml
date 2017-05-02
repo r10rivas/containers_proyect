@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  company: one
+  country: one
+  street: MyString
+  description: MyString
+  current?: false
+
+two:
+  company: two
+  country: two
+  street: MyString
+  description: MyString
+  current?: false

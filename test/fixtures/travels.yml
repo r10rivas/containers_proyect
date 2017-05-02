@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cod_travel: MyString
+  ship: one
+  destination: one
+  origin: one
+
+two:
+  cod_travel: MyString
+  ship: two
+  destination: two
+  origin: two
