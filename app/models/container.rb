@@ -5,7 +5,7 @@ class Container < ApplicationRecord
 
 
   # Validations
-  validates :code, presence:{message: "the code is nil"}, length: { is: 11, message: "the code is not of 11 caracters" }
+  validates :code, presence:{message: "the code is nil"}, length: { is: 11, message: "the code is not of 11 caracters" }, uniqueness:{message: "the code is registred"}
   validates :kind_of_container, presence:{message: 'the kind_of_container is nil'}
 
   #Metodo para ver los errores de validaciones

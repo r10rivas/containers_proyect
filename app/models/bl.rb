@@ -9,7 +9,7 @@ class Bl < ApplicationRecord
   has_many :bl_containers
 
   #Validations
-  validates :cod_bl, presence:{message: 'the cod_bl is nil'}
+  validates :cod_bl, presence:{message: 'the cod_bl is nil'}, uniqueness:{message: "the cod_bl is registred"}
   validates :date_arrive, presence:{message: 'the date_arrive is nil'}
   validates :bl_master, presence:{message: 'the bl is house, and the master?'}, if:"is_master == false"
   validate :blm_consignee, if: "is_master == true"
